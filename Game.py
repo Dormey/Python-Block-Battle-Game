@@ -15,17 +15,17 @@ score_surface = text_font.render("Score: {}".format(score), False, (0,0,0))
 
 #Setup music and sound effects
 music = pygame.mixer.music.load("assets/ES_Yammerer - Martin Klem.ogg")
-pygame.mixer.music.set_volume(0.35)
+pygame.mixer.music.set_volume(0.3)
 pygame.mixer.music.play(-1,0.0)
 
 dir_sound = pygame.mixer.Sound("assets/ES_Electronic Drum 1 - SFX Producer.ogg")
 dir_sound.set_volume(0.2)
 trail_sound = pygame.mixer.Sound("assets/ES_Beep Electronic 1 - SFX Producer.ogg")
-trail_sound.set_volume(0.5)
+trail_sound.set_volume(0.3)
 lose_trail_sound = pygame.mixer.Sound("assets/ES_Beep Electronic 5 - SFX Producer.ogg")
-lose_trail_sound.set_volume(0.5)
+lose_trail_sound.set_volume(0.3)
 die_sound = pygame.mixer.Sound("assets/ES_Hit Electronic 2 - SFX Producer.ogg")
-die_sound.set_volume(0.5)
+die_sound.set_volume(0.3)
 
 #Import player class and create player object
 from Player import Player
