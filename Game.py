@@ -46,7 +46,7 @@ co_list=[]
 #List that will contain trail block objects
 t_list=[]
 #Variable determining how many trailblocks plyr currently has
-t_len= 0
+t_len= 4
 
 #Whether or not the player died
 died = False
@@ -63,9 +63,9 @@ while run:
     #Runs every custom interval
     elif event.type == CUSTOM_INTERVAL_EVENT:
       score+=1
-      #1 in 8 chance of coloured object spawning instead of rect obstacle
+      #Chance of coloured object spawning instead of rect obstacle
       #Coloured objects give you a trail block
-      i = random.randint(0,8)
+      i = random.randint(0,10)
       if i == 4:
         r_x = random.randint(0,680)
         co_list.append(Object(r_x, -120,1))
