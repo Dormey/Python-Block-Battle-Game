@@ -4,7 +4,7 @@ pygame.init()
 #Setup display/window and background
 window = pygame.display.set_mode((800,750), pygame.SCALED)
 pygame.display.set_caption("Block Dodge")
-bg = pygame.image.load("/Users/dante/Documents/Python Projects/Game/assets/bg.png").convert()
+bg = pygame.image.load("/Users/dante/Documents/Python_Projects/Game/assets/bg.png").convert()
 
 #Setup score text font and surface
 text_font = pygame.font.SysFont("Arial", 40)
@@ -12,17 +12,17 @@ score = 0
 score_surface = text_font.render("Score: {}".format(score), False, (0,0,0))
 
 #Setup music and sound effects
-music = pygame.mixer.music.load("/Users/dante/Documents/Python Projects/Game/assets/ES_Yammerer - Martin Klem.ogg")
+music = pygame.mixer.music.load("/Users/dante/Documents/Python_Projects/Game/assets/ES_Yammerer - Martin Klem.ogg")
 pygame.mixer.music.set_volume(0.35)
 pygame.mixer.music.play(-1,0.0)
 
-dir_sound = pygame.mixer.Sound("/Users/dante/Documents/Python Projects/Game/assets/ES_Electronic Drum 1 - SFX Producer.ogg")
+dir_sound = pygame.mixer.Sound("/Users/dante/Documents/Python_Projects/Game/assets/ES_Electronic Drum 1 - SFX Producer.ogg")
 dir_sound.set_volume(0.2)
-trail_sound = pygame.mixer.Sound("/Users/dante/Documents/Python Projects/Game/assets/ES_Beep Electronic 1 - SFX Producer.ogg")
+trail_sound = pygame.mixer.Sound("/Users/dante/Documents/Python_Projects/Game/assets/ES_Beep Electronic 1 - SFX Producer.ogg")
 trail_sound.set_volume(0.5)
-lose_trail_sound = pygame.mixer.Sound("/Users/dante/Documents/Python Projects/Game/assets/ES_Beep Electronic 5 - SFX Producer.ogg")
+lose_trail_sound = pygame.mixer.Sound("/Users/dante/Documents/Python_Projects/Game/assets/ES_Beep Electronic 5 - SFX Producer.ogg")
 lose_trail_sound.set_volume(0.5)
-die_sound = pygame.mixer.Sound("/Users/dante/Documents/Python Projects/Game/assets/ES_Hit Electronic 2 - SFX Producer.ogg")
+die_sound = pygame.mixer.Sound("/Users/dante/Documents/Python_Projects/Game/assets/ES_Hit Electronic 2 - SFX Producer.ogg")
 die_sound.set_volume(0.5)
 
 #Import player class and create player object
