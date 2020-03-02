@@ -1,4 +1,6 @@
-import pygame, random
+import pygame, random, sys
+sys.dont_write_bytecode = True
+
 pygame.init()
 
 #Setup display/window and background
