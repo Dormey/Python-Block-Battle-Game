@@ -1,4 +1,5 @@
 import pygame, random, sys
+#Sets sys not to create bytecode
 sys.dont_write_bytecode = True
 
 pygame.init()
