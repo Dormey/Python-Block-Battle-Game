@@ -5,12 +5,12 @@ pygame.init()
 
 #Setup display/window and background
 window = pygame.display.set_mode((800,750), pygame.SCALED)
-pygame.display.set_caption("Block Dodge")
+pygame.display.set_caption("Block Battle")
 bg = pygame.image.load("assets/bg.png").convert()
 
 #Setup score text font and surface
 text_font = pygame.font.SysFont("Arial", 40)
-score = 0
+score = 1
 score_surface = text_font.render("Score: {}".format(score), False, (0,0,0))
 
 #Setup music and sound effects
@@ -32,7 +32,10 @@ from Player import Player
 plyr = Player(400,500)
 #Import classes from Objects file
 from Objects import Object
-from Objects import TrailBlock 
+from Objects import TrailBlock
+from Objects import Projectile
+#Import enemy
+from Enemy import Enemy
       
 #Custom event and timer to spawn objects every interval and use as points interval
 CUSTOM_INTERVAL_EVENT = pygame.event.custom_type()
@@ -47,6 +50,15 @@ co_list=[]
 t_list=[]
 #Variable determining how many trailblocks plyr currently has
 t_len= 4
+#Whether or not an enemy battle is going on
+enemy_spawned = False
+#List that will contain enemies
+e_list = []
+#List of player projectiles
+pp_list = []
+#List of enemy projectiles
+ep_list=[]
+
 
 #Whether or not the player died
 died = False
@@ -60,8 +72,9 @@ while run:
   for event in events:
     if event.type == pygame.QUIT:
       run = False
-    #Runs every custom interval
-    elif event.type == CUSTOM_INTERVAL_EVENT:
+    #Runs every custom interval, spawns rect or coloured objects
+    #If it is time for an enemy battle, objects will stop spawning
+    elif event.type == CUSTOM_INTERVAL_EVENT and enemy_spawned == False:
       score+=1
       #Chance of coloured object spawning instead of rect obstacle
       #Coloured objects give you a trail block
@@ -73,10 +86,15 @@ while run:
         r_x = random.randint(0,680)
         r_list.append(Object(r_x, -120,0))
     #If the player presses space, change direction and play the sound fx
+    #If the player presses L_Shift shoot one of their trailblocks if they have any left
     elif event.type == pygame.KEYDOWN: 
       if event.key == pygame.K_SPACE:
         pygame.mixer.Sound.play(dir_sound)
         plyr.movementSwitch()
+      elif event.key == pygame.K_LSHIFT and t_len>0:
+        pp_list.append(Projectile(plyr.getX(),plyr.getY(),0))
+        del t_list[-1]
+        t_len -= 1
 
   #Check if player has collided with rect obstacles
   obst_collision = plyr.obstCollisions(r_list)
@@ -129,9 +147,23 @@ while run:
   for t in t_list:
     t.update(window)
 
+  #Iterate over enemies and update them
+  for e in e_list:
+    e.update(window)
+  
+  #Iterate over player's projectiles and update them
+  for p in pp_list:
+    p.update(window)
+
   #Set the score surface with the plyr's current score, then set the text to appear on screen
   score_surface = text_font.render("Score: {}".format(score), False, (0,0,0))
   window.blit(score_surface,(10,10))
+
+  #Check if score has reached interval, if so spawn enemy
+  if score % 100 == 0:
+    score +=1
+    enemy_spawned = True
+    e_list.append(Enemy(400, - 75))
 
   #Update the player 
   plyr.update(window)

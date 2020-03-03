@@ -56,4 +56,24 @@ class TrailBlock():
         self.moveDown()
         pygame.draw.circle(window, self.colour,(self.x,self.y), 30)
 
-    
+#Projectile class
+class Projectile():
+    def __init__(self,x,y,t):
+        self.x = x
+        self.y = y
+        self.colours = [(65, 213, 215),(252, 73, 73)]
+        self.colour = self.colours[t]
+        self.speed = 18 +(2*t)
+        self.type = t
+
+    #Move up or down depending on if it is a player projectile or enemy projectile (type)
+    def moveUpOrDown(self):
+        if self.type == 0:
+            self.y -= self.speed
+        else:
+            self.y += self.speed
+
+    #Projectile update method, movement and draw object
+    def update(self,window):
+        self.moveUpOrDown()
+        pygame.draw.circle(window, self.colour,(self.x,self.y), 30)
