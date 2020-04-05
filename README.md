@@ -10,6 +10,5 @@ Your trail gives you extra lives, and each trail block is also ammo to beat enem
 Press "SPACE" to switch directions
 Press "L_SHIFT" to shoot projectiles
 
-I used sound effects and music from the website https://www.epidemicsound.com/
 
 
