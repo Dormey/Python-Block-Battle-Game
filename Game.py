@@ -41,7 +41,7 @@ while run:
       run = False
     if event.type == CUSTOM_INTERVAL_EVENT:
       i = random.randint(0,10)
-      if i == 4:
+      if i == 5:
         r_x = random.randint(0,680)
         co_list.append(Object(r_x, -120,1))
       else:

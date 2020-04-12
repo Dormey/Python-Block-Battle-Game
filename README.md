@@ -8,8 +8,8 @@ Avoid black blocks and collect blue circles to add to your trail
 Your trail gives you extra lives, and each trail block is also ammo to beat enemies
 
 Press "SPACE" to switch directions
-Press "L_SHIFT" to shoot projectiles
+Press "L_SHIFT" to shoot projectiles when fighting enemies
 
-I used sound effects and music from the website https://www.epidemicsound.com/
+
 
 
