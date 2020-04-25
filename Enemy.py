@@ -13,7 +13,7 @@ class Enemy():
 
     def moveDown(self):
         if self.y < 5:
-            self.y += 5
+            self.y += 1
 
     def moveSideways(self):
         if self.x + self.width > 800:

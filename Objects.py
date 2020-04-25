@@ -72,3 +72,22 @@ class Projectile():
         self.moveUpOrDown()
         self.rect = pygame.Rect(self.x - 30, self.y - 30 ,30,30)
         pygame.draw.circle(window, self.colour,(self.x,self.y), 30)
+
+
+class Button():
+    def __init__(self,x,y,t):
+        self.x = x
+        self.y = y
+        self.imgs = ["assets/start.png","assets/quit.png"]
+        self.img = pygame.image.load(self.imgs[t]).convert()
+        self.rect = pygame.Rect(self.x, self.y, 300, 120)
+
+    def getX(self):
+        return self.x
+
+    def getY(self):
+        return self.y
+
+    def update(self,window):
+        self.rect = pygame.Rect(self.x, self.y, 300, 120)
+        window.blit(self.img, self.rect)
