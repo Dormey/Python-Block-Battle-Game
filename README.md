@@ -11,5 +11,7 @@ Press "SPACE" to switch directions
 Press "L_SHIFT" to shoot projectiles when fighting enemies
 
 
+* Was going to refine code but moved on, thats why some parts aren't optimal :( *
+
 
 
