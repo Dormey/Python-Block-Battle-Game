@@ -10,8 +10,9 @@ Your trail gives you extra lives, and each trail block is also ammo to beat enem
 Press "SPACE" to switch directions
 Press "L_SHIFT" to shoot projectiles when fighting enemies
 
-
-* Was going to refine code but moved on, thats why some parts aren't optimal :( *
+--------------------------------------------------------------------------------------------
+Although this is the first Python project on my Github, it is not my first one, I just never 
+got around to making repos for my different projects and eventually I lost the files.
 
 
 
